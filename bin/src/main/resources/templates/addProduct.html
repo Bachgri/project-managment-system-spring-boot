@@ -38,15 +38,15 @@
   </div>
 </nav>
 	<div style="width: 84%; margin-left: 8%">
-		<h1>Edit Product</h1>
-		<form th:action = "@{/product/{id} (id=${product.id})}" th:object="${product}" method="POST">	
-		  <div class="form-group">	
+		<h1>New Product</h1>
+		<form th:action = "@{/product}" th:object="${product}" method="post">
+		  <div class="form-group">
 		    <label for="exampleInputEmail1">Designation</label>
 		    <input type="text" name = "designation" th:field = "*{designation}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Designation">
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Référence</label>
-		    <input type="text" name = "reference" th:field = "*{reference}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Référence">
+		    <label for="exampleInputEmail1">Reference</label>
+		    <input type="text" name = "reference" th:field = "*{reference}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Reference">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Prix</label>
@@ -54,15 +54,12 @@
 		  </div>
 		  
 		  <div class="form-group">
-		    <label for="exampleInputPassword1">Discription</label>
+		    <label for="exampleInputPassword1">Email</label>
 			<textarea rows="discription" class="form-control" th:field="*{discription}" cols="" placeholder="Discription"></textarea>
 		  </div>
-  		  <div class="form-group">
+		  <div class="form-group">
 		    <label for="exampleInputPassword1">Fournisseur</label>
 			<select class="form-control" name="fornisseur" th:field="*{fournisseur}">
-				<option th:value="${currentF.id}" th:text="${currentF.name}"></option>
-				<option th:value="0" th:text="--------------" disabled></option>
-				
 				<option th:each = "fournisseur: ${fournisseurs}" th:value="${fournisseur.id}" th:text="${fournisseur.name}"></option>
 			</select>
 		  </div>

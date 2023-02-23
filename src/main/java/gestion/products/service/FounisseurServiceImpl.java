@@ -23,5 +23,9 @@ public class FounisseurServiceImpl implements FournisseurService {
 	public void save(Fournisseur f) {
 		fr.save(f);
 	}
+	@Override
+	public Fournisseur get(Long id) { 
+		return fr.getById(id);
+	}
 	
 }

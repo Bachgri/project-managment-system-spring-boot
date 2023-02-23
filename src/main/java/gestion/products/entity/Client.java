@@ -10,41 +10,50 @@ public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name, phone, adress;
+	private String name, phone, address;
 	
 	public Client() {
 	}
-	
-	public Client(String name, String phone, String adress) {
+
+	public Client(String name, String phone, String address) {
 		super();
 		this.name = name;
 		this.phone = phone;
-		this.adress = adress;
+		this.address = address;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getPhone() {
 		return phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getAdress() {
-		return adress;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
+	
 	
 	
 }

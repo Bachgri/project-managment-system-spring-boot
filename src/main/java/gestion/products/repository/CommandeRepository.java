@@ -1,5 +1,9 @@
 package gestion.products.repository;
 
-public interface CommandeRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import gestion.products.entity.Commande;
+
+public interface CommandeRepository extends JpaRepository<Commande, Long> {
 
 }

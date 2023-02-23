@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Product Management System</title>
+<title>Student Management System</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -46,35 +46,32 @@
 
 	<div class ="container">
 		<div class = "row">
-			<h1> Products list </h1>
+			<h1> List Clients </h1>
 		</div>
+		
 		<div class = "row">
 			<div class = "col-lg-3">
-				<a th:href = "@{/product/new}" class = "btn btn-primary btn-sm mb-3 fa fa-add"></a>
+				<a th:href = "@{/client/new}" class = "btn btn-primary btn-sm mb-3 fa fa-add"></a>
 			</div>
 		</div>
 		<table class = "table table-striped table-bordered">
 			<thead class = "table">
 				<tr>
-					<th> Designation</th>
-					<th> Reference</th>
-					<th> Price</th>
-					<th> Discription</th>
-					<th> Fournisseur</th>
+					<th> name</th> 
+					<th> phone</th>
+					<th> Adress</th>
 					<th> Actions </th>
 				</tr>
 			</thead>
 			
 			<tbody>
-				<tr th:each = "product: ${products}">
-					<td th:text = "${product.designation}"></td>
-					<td th:text = "${product.reference}"></td>
-					<td th:text = "${product.price}"></td>
-					<td th:text = "${product.discription}"></td>
-					<td th:text = "${product.fournisseur.name}"></td>
+				<tr th:each = "client: ${clients}">
+					<td th:text = "${client.name}"></td>
+					<td th:text = "${client.phone}"></td>
+					<td th:text = "${client.address}"></td> 
 					<td>
-						<a th:href="@{/edit/{id}(id=${product.id})}"   class = "btn btn-primary fa fa-pencil"></a>
-						<a th:href="@{/delete/{id}(id=${product.id})}" class = "btn btn-danger  fa fa-trash" ></a>
+						<a th:href="@{/editc/{id}(id=${client.id})}"   class = "btn btn-primary fa fa-pencil"></a>
+						<a th:href="@{/client/delete/{id}(id=${client.id})}" class = "btn btn-danger  fa fa-trash" ></a>
 					</td>
 				</tr>
 			</tbody>

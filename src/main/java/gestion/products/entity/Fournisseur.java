@@ -52,6 +52,12 @@ public class Fournisseur {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+
+	@Override
+	public String toString() {
+		return "Fournisseur [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", ville=" + ville
+				+ "]";
+	}
 	
 	
 	
