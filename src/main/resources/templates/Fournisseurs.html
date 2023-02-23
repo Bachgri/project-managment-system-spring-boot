@@ -64,7 +64,6 @@
 					<th> Actions </th>
 				</tr>
 			</thead>
-			
 			<tbody>
 				<tr th:each = "fournisseur: ${fournisseurs}">
 					<td th:text = "${fournisseur.name}"></td>
@@ -72,12 +71,11 @@
 					<td th:text = "${fournisseur.phone}"></td>
 					<td th:text = "${fournisseur.ville}"></td>
 					<td>
-						<a th:href="@{/editf/{id}(id=${fournisseur.id})}"   class = "btn btn-primary fa fa-pencil"></a>
-						<a th:href="@{/deletef/{id}(id=${fournisseur.id})}" class = "btn btn-danger  fa fa-trash" ></a>
+						<a th:href="@{/fournisseur/edite/{id}(id=${fournisseur.id})}"   class = "btn btn-primary fa fa-pencil"></a>
+						<a th:href="@{/fournisseur/delete/{id}(id=${fournisseur.id})}" class = "btn btn-danger  fa fa-trash" ></a>
 					</td>
 				</tr>
 			</tbody>
-		
 		</table>
 		
 	</div>

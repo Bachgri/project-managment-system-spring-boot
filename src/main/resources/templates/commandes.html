@@ -43,6 +43,11 @@
     </ul>
   </div>
 </nav>
+	<span th:text="${#lists.size(commandes)}"></span>
+	<ul th:each="f:${commande}">
+		<li th:text="f.products.length"></li>
+	</ul>
+
 
 	<div class ="container">
 		<div class = "row">

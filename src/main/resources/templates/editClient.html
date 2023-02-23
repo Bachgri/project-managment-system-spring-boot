@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Add Product</title>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg navbar">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Products Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/products}">Product Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/commandes}">Commande Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/clients}">Client Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/fournisseurs}">Fournisseurs</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+	<div style="width: 84%; margin-left: 8%">
+		<h1>New Client</h1>
+		<form th:action = "@{/client/update/{id}(id=${client.id})}" th:object="${client}" method="post">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">name</label>
+		    <input type="text" name = "name" th:field = "*{name}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Phone</label>
+		    <input type="text" name = "phone" th:field = "*{phone}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Adress</label>
+		    <input type="text" name = "address" th:field = "*{address}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Adresse">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

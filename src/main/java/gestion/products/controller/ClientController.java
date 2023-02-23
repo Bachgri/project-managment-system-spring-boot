@@ -45,11 +45,26 @@ public class ClientController {
 		cs.save(c);
 		return "redirect:/clients";
 	}
-	@GetMapping("client/delete/{id}")
+	@GetMapping("/clients/delete/{id}")
 	public String delete(@PathVariable Long id) {
 		cs.delete(id);
 		return "redirect:/clients";
 	}
+	@GetMapping("clients/edit/{id}")
+	public String edite(@PathVariable Long id, Model model) {
+		model.addAttribute("client", cs.get(id));
+		return "editClient";
+	}
+	@PostMapping("/client/update/{id}")
+	public String update(@PathVariable Long id, @ModelAttribute Client c) {
+		Client c0 = cs.get(id);
+		c0.setAddress(c.getAddress());
+		c0.setName(c.getName());
+		c0.setPhone(c.getPhone());
+		cs.save(c0);
+		return "redirect:/clients";
+	}
+	
 	
 	
 }	
