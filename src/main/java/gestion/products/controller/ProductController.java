@@ -77,6 +77,7 @@ public class ProductController {
 		oldP.setDiscription(p.getDiscription());
 		oldP.setPrice(p.getPrice());
 		oldP.setReference(p.getReference());
+		oldP.setFournisseur(p.getFournisseur());
 		//ps.delete(oldP);
 		ps.save(oldP);
 		return "redirect:/products";

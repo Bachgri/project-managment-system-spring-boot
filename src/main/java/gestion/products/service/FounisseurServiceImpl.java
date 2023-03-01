@@ -27,5 +27,9 @@ public class FounisseurServiceImpl implements FournisseurService {
 	public Fournisseur get(Long id) { 
 		return fr.getById(id);
 	}
+	@Override
+	public void delete(Long id) {
+		fr.deleteById(id);
+	}
 	
 }
