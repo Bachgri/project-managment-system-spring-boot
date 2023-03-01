@@ -23,7 +23,7 @@ public class Product {
 	private String reference;
 	private String designation, discription;
 	private double price;
-	@OneToOne(cascade = javax.persistence.CascadeType.ALL) 
+	@OneToOne(cascade = javax.persistence.CascadeType.DETACH) 
 	private Fournisseur fournisseur ;
 	
 	

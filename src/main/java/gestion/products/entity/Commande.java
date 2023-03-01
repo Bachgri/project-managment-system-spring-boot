@@ -24,9 +24,9 @@ public class Commande {
 	private double prix_vente;
 	private Timestamp timestamp;
 	private String Status;
-	@OneToOne(cascade = CascadeType.ALL) 
+	@OneToOne(cascade = CascadeType.DETACH) 
 	Client client;
-	@ManyToMany(cascade = CascadeType.ALL )
+	@ManyToMany(cascade = CascadeType.DETACH )
 	private Set<Product> products;
 	public Commande() {
 	}

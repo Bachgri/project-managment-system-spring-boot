@@ -39,18 +39,22 @@ public class SecurityConfig //extends WebSecurityConfigurerAdapter
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+    // password : $2a$10$KJU4rZbVY6xOkKrWFSX4G.CPHlu7qCwKEGEOAVhvwQCBjjeZE8DKC
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
 	        //.antMatchers("/clients").hasAuthority("ROLE_CLIENT")
-	        .antMatchers("/products").hasAuthority("ROLE_ADMIN")
-	        //.antMatchers("/commandes").hasAuthority("ROLE_ADMIN")
-	        //.antMatchers("/fournisseurs").hasAuthority("ROLE_ADMIN")
-	        .antMatchers("/store").hasAnyAuthority("ROLE_ADMIN")
+	        .antMatchers("/products").hasRole("ADMIN")
+	        //.antMatchers("/commandes").hasAuthority("ROLE_CLIENT") 
+	        .antMatchers("/fournisseurs").hasAuthority("ROLE_ADMIN")
+	        .antMatchers("/store").hasAnyAuthority("ROLE_CLIENT")
             //.anyRequest().authenticated()
-            .and()
-            .httpBasic();
+            .and()		    //
+            .httpBasic();   // 
+        http.formLogin(//form -> form
+    			//.loginPage("/login")
+    			//.permitAll()
+    		);   // demande pour afficher La page de login
         return http.build();
     }
 	/*@Bean
