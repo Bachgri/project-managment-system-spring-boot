@@ -98,6 +98,13 @@ public class Product {
 	public void setFournisseur(Fournisseur fournisseur) {
 		this.fournisseur = fournisseur;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", reference=" + reference + ", designation=" + designation + ", discription="
+				+ discription + ", price=" + price + ", fournisseur=" + fournisseur + "]";
+	}
 	
 	
 }

@@ -40,20 +40,23 @@ public class SecurityConfig //extends WebSecurityConfigurerAdapter
         return new BCryptPasswordEncoder();
     }
     // password : $2a$10$KJU4rZbVY6xOkKrWFSX4G.CPHlu7qCwKEGEOAVhvwQCBjjeZE8DKC
-    @Bean
+    @Bean   
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
 	        //.antMatchers("/clients").hasAuthority("ROLE_CLIENT")
 	        .antMatchers("/products").hasRole("ADMIN")
+	        .antMatchers("/products").hasRole("CLIENT")
+	        .antMatchers("/products").hasRole("USER")
+	        
 	        //.antMatchers("/commandes").hasAuthority("ROLE_CLIENT") 
 	        .antMatchers("/fournisseurs").hasAuthority("ROLE_ADMIN")
 	        .antMatchers("/store").hasAnyAuthority("ROLE_CLIENT")
             //.anyRequest().authenticated()
             .and()		    //
             .httpBasic();   // 
-        http.formLogin(//form -> form
-    			//.loginPage("/login")
-    			//.permitAll()
+        http.formLogin(/*form -> form
+    			.loginPage("/login")
+    			.permitAll()*/
     		);   // demande pour afficher La page de login
         return http.build();
     }
@@ -61,14 +64,14 @@ public class SecurityConfig //extends WebSecurityConfigurerAdapter
     public UserDetailsManager users(DataSource dataSource) {
         UserDetails userd = User.withDefaultPasswordEncoder()
             .username("user")
-            .password("password")
-            .roles("USER")
-            .build();
+            .password("user")
+            .roles("user")
+            .build(); 
         JdbcUserDetailsManager user = new JdbcUserDetailsManager(dataSource);
         user.createUser(userd);
         return user;
-    }*/
-	
+    }
+	*/
     /*@Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
